@@ -23,8 +23,11 @@ public class Buscador {
 				case 3:
 					eliminarTitulo(titulos);
 					break;
+				case 4:
+					mostrarTitulos(titulos);
+					break;
 			}
-		}while(op!=4);
+		}while(op!=5);
 		
 		
 
@@ -34,7 +37,8 @@ public class Buscador {
 		System.out.println("1. Añadir nuevo título");
 		System.out.println("2. Buscar títulos");
 		System.out.println("3. Eliminar títulos");
-		System.out.println("4. Salir");
+		System.out.println("4. Mostrar títulos");
+		System.out.println("5. Salir");
 	}
 	
 	static void nuevo(StringBuilder titulos) {
@@ -73,6 +77,10 @@ public class Buscador {
 		}else {
 			System.out.println("Ese título no existe");
 		}
+	}
+	
+	static void mostrarTitulos(StringBuilder titulos) {
+		System.out.println(titulos);
 	}
 	
 }
