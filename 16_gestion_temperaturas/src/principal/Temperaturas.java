@@ -22,8 +22,8 @@ public class Temperaturas {
                    media(temperaturas);
                    break;
                case 3:
-                   System.out.println("temperatura más alta:"+mayor(temperaturas));
-                   System.out.println("temperatura más baja:"+menor(temperaturas));
+                   System.out.println("temperatura más alta: "+mayor(temperaturas));
+                   System.out.println("temperatura más baja: "+menor(temperaturas));
                    break;
                case 4:
             	   mostrarTemperaturas(temperaturas);
@@ -57,7 +57,7 @@ public class Temperaturas {
     private static double mayor(ArrayList<Double> temperaturas){
         double max=temperaturas.get(0); //inicializamos
         for(Double tp:temperaturas){
-        	max=Math.min(tp, max);
+        	max=Math.max(tp, max);
         }
         return max;
     }
