@@ -14,8 +14,7 @@ public class Temperaturas {
            menu();
            op=sc.nextInt();
            switch(op){
-               case 1:
-                   
+               case 1:                  
                    agregarTemperatura(temperaturas);
                    break;
                case 2:
