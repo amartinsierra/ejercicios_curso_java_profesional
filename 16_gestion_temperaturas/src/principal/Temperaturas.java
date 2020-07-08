@@ -44,7 +44,7 @@ public class Temperaturas {
         System.out.println("5.- Salir");
 	}
     private static void agregarTemperatura( ArrayList<Ciudad> temperaturas){
-    	Ciudad ciudad=new Ciudad();
+    	
     	double tmp;
     	String nombreCiudad;
     	Scanner sc=new Scanner(System.in);
@@ -53,8 +53,7 @@ public class Temperaturas {
         System.out.println("Nombre ciudad:");
         nombreCiudad=sc.nextLine();
         if(!comprobar(temperaturas,nombreCiudad)) {
-	        ciudad.setNombre(nombreCiudad);
-	        ciudad.setTemperatura(tmp);
+        	Ciudad ciudad=new Ciudad(nombreCiudad,tmp);
 	        //guardamos en el ArrayList el objecto Ciudad
 	        temperaturas.add(ciudad);
         }else {
