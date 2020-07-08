@@ -52,10 +52,15 @@ public class Temperaturas {
         tmp=Double.parseDouble(sc.nextLine());
         System.out.println("Nombre ciudad:");
         nombreCiudad=sc.nextLine();
-        ciudad.setNombre(nombreCiudad);
-        ciudad.setTemperatura(tmp);
-        //guardamos en el ArrayList el objecto Ciudad
-        temperaturas.add(ciudad);
+        if(!comprobar(temperaturas,nombreCiudad)) {
+	        ciudad.setNombre(nombreCiudad);
+	        ciudad.setTemperatura(tmp);
+	        //guardamos en el ArrayList el objecto Ciudad
+	        temperaturas.add(ciudad);
+        }else {
+        	System.out.println("Ciudad ya registrada ");
+        }
+        
     }
     private static void media(ArrayList<Ciudad> temperaturas){
         double m=0;
@@ -91,6 +96,23 @@ public class Temperaturas {
             System.out.println(c.getNombre()+","+c.getTemperatura());
         }
     	System.out.println("\n");
+    }
+    
+    static boolean comprobar(ArrayList<Ciudad> temperaturas,String nombre) {
+    	/*boolean resultado=false;
+    	for(Ciudad c:temperaturas) {
+    		if(c.getNombre().equalsIgnoreCase(nombre)) {
+    			resultado=true;
+    			break;
+    		}
+    	}
+    	return resultado;*/
+    	for(Ciudad c:temperaturas) {
+    		if(c.getNombre().equalsIgnoreCase(nombre)) {
+    			return true;
+    		}
+    	}
+    	return false;
     }
 
 }
