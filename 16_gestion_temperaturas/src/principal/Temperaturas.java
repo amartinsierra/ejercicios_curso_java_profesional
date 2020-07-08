@@ -3,11 +3,13 @@ package principal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import model.Ciudad;
+
 public class Temperaturas {
 
 	
 	public static void main(String[] args) {
-		ArrayList<Double> temperaturas=new ArrayList<>();
+		ArrayList<Ciudad> temperaturas=new ArrayList<>();
         Scanner sc=new Scanner(System.in);
         int op;//opcion elegida
         do{
@@ -21,8 +23,8 @@ public class Temperaturas {
                    media(temperaturas);
                    break;
                case 3:
-                   System.out.println("temperatura más alta: "+mayor(temperaturas));
-                   System.out.println("temperatura más baja: "+menor(temperaturas));
+                   System.out.println("ciudad con temperatura más alta: "+mayor(temperaturas).getNombre());
+                   System.out.println("ciudad con temperatura más baja: "+menor(temperaturas).getNombre());
                    break;
                case 4:
             	   mostrarTemperaturas(temperaturas);
@@ -41,35 +43,52 @@ public class Temperaturas {
         System.out.println("4.- Mostrar todas");
         System.out.println("5.- Salir");
 	}
-    private static void agregarTemperatura( ArrayList<Double> temperaturas){
-    	System.out.println("Temperatura:");
+    private static void agregarTemperatura( ArrayList<Ciudad> temperaturas){
+    	Ciudad ciudad=new Ciudad();
+    	double tmp;
+    	String nombreCiudad;
     	Scanner sc=new Scanner(System.in);
-        temperaturas.add(sc.nextDouble()); 
+    	System.out.println("Temperatura:");
+        tmp=Double.parseDouble(sc.nextLine());
+        System.out.println("Nombre ciudad:");
+        nombreCiudad=sc.nextLine();
+        ciudad.setNombre(nombreCiudad);
+        ciudad.setTemperatura(tmp);
+        //guardamos en el ArrayList el objecto Ciudad
+        temperaturas.add(ciudad);
     }
-    private static void media(ArrayList<Double> temperaturas){
+    private static void media(ArrayList<Ciudad> temperaturas){
         double m=0;
-        for(Double n:temperaturas){
-            m+=n;
+        for(Ciudad c:temperaturas){
+            m+=c.getTemperatura();
         }
         System.out.println( m/temperaturas.size());
     }
-    private static double mayor(ArrayList<Double> temperaturas){
-        double max=temperaturas.get(0); //inicializamos
-        for(Double tp:temperaturas){
-        	max=Math.max(tp, max);
+    private static Ciudad mayor(ArrayList<Ciudad> temperaturas){
+        double max=temperaturas.get(0).getTemperatura(); //inicializamos
+        Ciudad ciudad=temperaturas.get(0);
+        for(Ciudad c:temperaturas){
+        	if(c.getTemperatura()>max) {
+        		max=c.getTemperatura();
+        		ciudad=c;
+        	}
         }
-        return max;
+        return ciudad;
     }
-    private static double menor(ArrayList<Double> temperaturas){
-        double min=temperaturas.get(0); //inicializamos
-        for(Double tp:temperaturas){
-            min=Math.min(tp, min);
+    private static Ciudad menor(ArrayList<Ciudad> temperaturas){
+        double min=temperaturas.get(0).getTemperatura(); //inicializamos
+        Ciudad ciudad=temperaturas.get(0);
+        for(Ciudad c:temperaturas){
+        	if(c.getTemperatura()<min) {
+        		min=c.getTemperatura();
+        		ciudad=c;
+        	}
         }
-        return min;
+        return ciudad;
     }
-    private static void mostrarTemperaturas(ArrayList<Double> temperaturas) {
-    	for(Double tp:temperaturas){
-            System.out.print(tp+",");
+    private static void mostrarTemperaturas(ArrayList<Ciudad> temperaturas) {
+    	for(Ciudad c:temperaturas){
+            System.out.println(c.getNombre()+","+c.getTemperatura());
         }
     	System.out.println("\n");
     }
