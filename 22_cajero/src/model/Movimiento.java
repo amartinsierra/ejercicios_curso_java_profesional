@@ -20,5 +20,9 @@ public class Movimiento {
 	public void setTipoMovimiento(String tipoMovimiento) {
 		this.tipoMovimiento = tipoMovimiento;
 	}
+	@Override
+	public String toString() {
+		return tipoMovimiento+" - "+cantidad;
+	}
 	
 }

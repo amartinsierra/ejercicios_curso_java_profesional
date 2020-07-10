@@ -1,7 +1,7 @@
 package principal;
 
 import java.util.Arrays;
-
+import static java.lang.Math.*;
 public class Loteria {
 
 	public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class Loteria {
 	}
 	
 	static int generarNumero() {
-		return (int)(Math.random()*49+1);
+		return (int)(random()*49+1);
 	}
 
 	static boolean existente(int[] combinacion, int total,int generado) {
