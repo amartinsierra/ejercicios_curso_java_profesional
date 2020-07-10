@@ -13,17 +13,19 @@ public class CuentaServiceMovimientos extends CuentaLimiteService {
 		super(saldo, limite);
 	}
 	@Override
-	public void ingresar(double cantidad) {
-		movimientos.add(new Movimiento(cantidad>getLimite()?getLimite():cantidad,"Ingreso"));
-		super.ingresar(cantidad);
+	public double ingresar(double cantidad) {
+		double resultado=super.ingresar(cantidad);
+		movimientos.add(new Movimiento(resultado,"Ingreso"));
+		return resultado;
 	}
 
 
 
 	@Override
-	public void extraer(double cantidad) {
-		movimientos.add(new Movimiento(cantidad>getLimite()?getLimite():cantidad,"Extraer"));
-		super.extraer(cantidad);
+	public double extraer(double cantidad) {
+		double resultado=super.extraer(cantidad);
+		movimientos.add(new Movimiento(resultado,"Extraer"));
+		return resultado;
 	}
 
 
