@@ -1,11 +1,12 @@
 package service;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 import model.Movimiento;
 
 public class CuentaServiceMovimientos extends CuentaLimiteService {
-	private ArrayList<Movimiento> movimientos=new ArrayList<Movimiento>();
+	private List<Movimiento> movimientos=new Vector<Movimiento>();
 	
 	
 	public CuentaServiceMovimientos(double saldo, double limite) {
@@ -30,7 +31,7 @@ public class CuentaServiceMovimientos extends CuentaLimiteService {
 
 
 
-	public ArrayList<Movimiento> obtenerMovimientos(){
+	public List<Movimiento> obtenerMovimientos(){
 		return movimientos;
 	}
 }
