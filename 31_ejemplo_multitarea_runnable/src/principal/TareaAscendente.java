@@ -1,6 +1,6 @@
 package principal;
 
-public class TareaAscendente extends Thread{
+public class TareaAscendente implements Runnable{
 
 	@Override
 	public void run() {
