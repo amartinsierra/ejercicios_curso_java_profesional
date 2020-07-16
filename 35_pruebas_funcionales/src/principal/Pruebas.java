@@ -19,7 +19,7 @@ public class Pruebas {
 													}
 													return true;
 												};
-										
+		comprobaciones(numeros,tpares,tprimos);								
 		
 	}
 	
